@@ -1,29 +1,37 @@
-import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
 import ListItem from "../components/ListItem";
 
-type Item = Movie | undefined;
-
-let data = new Array<Item>;
-
-fetch('https://reactnative.dev/movies.json')
-    .then(response => response.json())
-    .then(json => {
-        json.movies.map((item: Item) => {
-            data.push(item);
-        });
-    })
-    .catch((error) => {
-        console.log(error);
-    });
-
 function List(): JSX.Element {
+    const [isLoading, setLoading] = useState(true);
+    const [movies, setMovies] = useState<Movie[]>([]);
+
+    const getMovies = async () => {
+        try {
+            const response = await fetch('https://reactnative.dev/movies.json');
+            const json = await response.json();
+            setMovies(json.movies);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    useEffect(() => {
+        getMovies();
+    }, []);
+
     return (
         <View style={styles.listView}>
             <View style={styles.list}>
                 <Text style={styles.textHeader}>THIS IS FLAT LIST SCREEN</Text>
             </View>
-            <FlatList data={data} renderItem={({item}) => ListItem(item)}/>
+            {isLoading ? (
+                <ActivityIndicator />
+            ) : (
+                <FlatList data={movies} renderItem={({ item }) => ListItem(item)} />
+            )}
         </View>
     );
 }
