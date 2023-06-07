@@ -5,6 +5,7 @@ import ListItem from "../components/ListItem";
 type Item = Movie | undefined;
 
 let data = new Array<Item>;
+
 fetch('https://reactnative.dev/movies.json')
     .then(response => response.json())
     .then(json => {
