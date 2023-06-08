@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 
 type Item = Movie | undefined;
 
-function Item(item: Item): JSX.Element {
+function ItemElement(item: Item): JSX.Element {
     return (
         <View style={styles.itemContainer}>
             <View>
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Item;
+export default ItemElement;
