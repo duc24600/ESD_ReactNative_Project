@@ -1,24 +1,24 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import React, { useState } from "react";
-import Counter from "./screens/Counter";
-import List from "./screens/FlatList";
-//import { createStackNavigator } from "@react-navigation/stack";
+// import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+// import { createStackNavigator } from "@react-navigation/stack";
 import Login from "./screens/Login";
+// import BottomNavigator from "./navigators/BottomNavigator";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const Tab = createBottomTabNavigator();
 //const Stack = createStackNavigator();
 
 function App() : JSX.Element {
-  //const [isSignedIn, setSignedIn] = useState(false);
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Login" component={Login}/>
-        <Tab.Screen name="Counter" component={Counter}/>
-        <Tab.Screen name="List" component={List}/>
-      </Tab.Navigator>
-    </NavigationContainer>
+    
+    // <NavigationContainer>
+    //   <Stack.Navigator>
+    //     <Stack.Screen name="Login" component={Login}/>
+    //     <Stack.Screen name="Home" component={BottomNavigator} />
+    //   </Stack.Navigator>      
+    // </NavigationContainer>
+    <SafeAreaView>
+      <Login/>
+    </SafeAreaView>
   );
 }
 

@@ -1,21 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 export type Props = {
     content: string
 };
 
-const HeaderText : React.FC<Props> = ({content}) => {
+const HeaderText = (props : Props) => {
     return (
         <View>
-            <Text>{content}</Text>
+            <Text style={styles.text}>{props.content}</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     text: {
-
+        fontSize: 20,
+        fontFamily: 'Inter',
+        fontWeight: 'bold',
+        color: '#565E6CFF',
+        margin: 20
     }
 });
 
