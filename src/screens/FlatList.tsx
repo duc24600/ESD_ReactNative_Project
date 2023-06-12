@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
 import ListItem from "../components/ListItem";
+import MovieService from "../services/movie.service";
 
 function List(): JSX.Element {
     const [isLoading, setLoading] = useState(true);
     const [movies, setMovies] = useState<Movie[]>([]);
 
-    const getMovies = async () => {
-        try {
-            const response = await fetch('https://reactnative.dev/movies.json');
-            const json = await response.json();
-            setMovies(json.movies);
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false);
+    const fetchData = async() => {
+        const data= await MovieService.getMovies();
+        if(data){
+            setMovies(data);
         }
     }
 
     useEffect(() => {
-        getMovies();
+        fetchData();
+        setLoading(false);
     }, []);
 
     return (
