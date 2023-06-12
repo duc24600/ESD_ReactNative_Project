@@ -7,9 +7,18 @@ import Password from "../resources/password.svg";
 import Domain from "../resources/domain.svg";
 import Dropdown from "../resources/dropdown.svg";
 import Label from "../components/Label";
-import CheckBox from "../components/checkBox";
+import CheckBox from "../components/CheckBox";
+import { useNavigation } from "@react-navigation/native";
+
 
 function Login(): JSX.Element {
+    
+    const navigation = useNavigation();
+
+    const handleLogin = () => { 
+        navigation.navigate("Home" as never);
+    };
+
     return (
         <View>
             <View style={styles.titleContainer}>
@@ -43,7 +52,8 @@ function Login(): JSX.Element {
                 <CheckBox label="Ghi nhớ tài khoản"/>
             </View>
             <TouchableOpacity 
-                style={styles.button} >
+                style={styles.button}
+                onPress={handleLogin}>
                 <Text>Đăng nhập</Text>
             </TouchableOpacity>
         </View>

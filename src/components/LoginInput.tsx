@@ -5,8 +5,6 @@ import { SvgProps } from "react-native-svg";
 type Props = {
     placeHolder?: string,
     isPassword: boolean,
-    leftImage?: React.FC<SvgProps>,
-    rightImage?: React.FC<SvgProps>
 };
 
 const Input = (props: Props) => {
