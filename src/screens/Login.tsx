@@ -7,15 +7,15 @@ import Password from "../resources/password.svg";
 import Domain from "../resources/domain.svg";
 import Dropdown from "../resources/dropdown.svg";
 import Label from "../components/Label";
-import CheckBox from "../components/CheckBox";
+import CheckBox from "../components/checkBox";
 import { useNavigation } from "@react-navigation/native";
 
 
 function Login(): JSX.Element {
-    
+
     const navigation = useNavigation();
 
-    const handleLogin = () => { 
+    const handleLogin = () => {
         navigation.navigate("Home" as never);
     };
 
@@ -49,9 +49,9 @@ function Login(): JSX.Element {
                         <LoginInput placeHolder="Nhập mật khẩu" isPassword={true} />
                     </View>
                 </View>
-                <CheckBox label="Ghi nhớ tài khoản"/>
+                <CheckBox label="Ghi nhớ tài khoản" />
             </View>
-            <TouchableOpacity 
+            <TouchableOpacity
                 style={styles.button}
                 onPress={handleLogin}>
                 <Text>Đăng nhập</Text>
