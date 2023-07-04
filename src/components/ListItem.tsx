@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 type Item = Movie | undefined;
 
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         padding: 10
     },
-    itemContent:{
+    itemContent: {
         marginHorizontal: 10,
     },
     thumbnail: {

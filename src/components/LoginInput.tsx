@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, TextInput, View, Text } from "react-native";
-import { SvgProps } from "react-native-svg";
+import { StyleSheet, TextInput } from "react-native";
 
 type Props = {
     placeHolder?: string,
@@ -9,11 +8,11 @@ type Props = {
 
 const Input = (props: Props) => {
     return (
-            <TextInput
-                placeholder={props.placeHolder}
-                secureTextEntry={props.isPassword}
-                style={styles.input}
-            />
+        <TextInput
+            placeholder={props.placeHolder}
+            secureTextEntry={props.isPassword}
+            style={styles.input}
+        />
     );
 }
 
